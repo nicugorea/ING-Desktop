@@ -1,0 +1,30 @@
+﻿<Page x:Class="WPF.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="300"
+      Title="LoginPage">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <!-- Te rugăm să te autentifici -->
+            <RowDefinition Height="1*"/>
+            <!-- Codul de utilizator -->
+            <RowDefinition Height="1*"/>
+            <!-- input Codul de utilizator -->
+            <RowDefinition Height="1*"/>
+            <!-- Parola / Digipass -->
+            <RowDefinition Height="1*"/>
+            <!-- input Parola / Digipass -->
+            <RowDefinition Height="1*"/>
+            <!-- login button-->
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Label Content="        Te rugăm să te autentifici" Background="LightGray" Foreground="Black" VerticalContentAlignment="Center"/>
+        <Image Source="../img/icon-lock-orange.png" Height="20" HorizontalAlignment="Left"/>
+    </Grid>
+</Page>

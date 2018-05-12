@@ -1,0 +1,54 @@
+﻿<Control:MetroWindow
+    xmlns:Control="http://metro.mahapps.com/winfx/xaml/controls" x:Class="WPF.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowTitleBrush="Orange"
+        Title="ING HOMEBANK CLONE" Height="600" Width="800">
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <!-- Logo bar -->
+                <RowDefinition Height="1*"/>
+
+                <!-- Register -->
+                <RowDefinition Height="2*"/>
+
+                <!-- Login -->
+                <RowDefinition Height="4*"/>
+
+                <!-- Tools & Social -->
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Frame x:Name="loginFrame" Grid.Column="0"  BorderThickness="1" BorderBrush="LightGray" Margin="10"  Grid.RowSpan="6"></Frame>
+                <Image Grid.Column="1" Source="img/banner.png"/>
+            </Grid>
+                <Image Source="img/ING_logo.png" Height="30" HorizontalAlignment="Left"/>
+                <Image Source="img/HB_logo.png" Height="30" HorizontalAlignment="Right"/>
+            <Separator Foreground="LightGray" VerticalAlignment="Bottom"/>
+
+
+
+        </Grid>
+
+
+
+    </Grid>
+</Control:MetroWindow>
