@@ -13,5 +13,10 @@ namespace WPF
             InitializeComponent();
             loginFrame.Content = new LoginPage(this);
         }
+
+        private void CreateNewAccount(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            return;
+        }
     }
 }

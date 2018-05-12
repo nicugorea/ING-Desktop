@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowTitleBrush="Orange"
-        Title="ING HOMEBANK CLONE" Height="600" Width="800">
+        Title="ING HOMEBANK CLONE" Height="600" Width="1024">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -26,10 +26,10 @@
                 <RowDefinition Height="1*"/>
 
                 <!-- Login -->
-                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
 
                 <!-- Tools & Social -->
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="2">
@@ -50,10 +50,9 @@
                 <Label Content="ING Home'Bank" Foreground="Orange" FontWeight="Bold" FontSize="20"/>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Esti client ING si nu ai inca ING Home'Bank?" FontWeight="Medium" FontSize="18"/>
-                    <Button Content="Creeaza cont." Style="{DynamicResource SquareButtonStyle}" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18"></Button>
+                    <Label Content="Creeaza cont." FontWeight="Medium" FontSize="18" MouseLeftButtonDown="CreateNewAccount"/>
                 </StackPanel>
             </StackPanel>
-
 
         </Grid>
 

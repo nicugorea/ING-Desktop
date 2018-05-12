@@ -5,26 +5,24 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPF.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="300"
+      d:DesignHeight="300" d:DesignWidth="300"
       Title="LoginPage">
 
     <Grid>
 
-        <Grid.RowDefinitions>
-            <!-- Te rugăm să te autentifici -->
-            <RowDefinition Height="1*"/>
-            <!-- Codul de utilizator -->
-            <RowDefinition Height="1*"/>
-            <!-- input Codul de utilizator -->
-            <RowDefinition Height="1*"/>
-            <!-- Parola / Digipass -->
-            <RowDefinition Height="1*"/>
-            <!-- input Parola / Digipass -->
-            <RowDefinition Height="1*"/>
-            <!-- login button-->
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Label Content="        Te rugăm să te autentifici" Background="LightGray" Foreground="Black" VerticalContentAlignment="Center"/>
-        <Image Source="../img/icon-lock-orange.png" Height="20" HorizontalAlignment="Left"/>
+        <StackPanel>
+
+        <!-- title -->
+            <StackPanel Orientation="Horizontal" Background="LightGray">
+                <Image Source="../img/icon-lock-orange.png" Height="20" HorizontalAlignment="Left"/>
+                <Label Content="Te rugăm să te autentifici" Foreground="Black" FontWeight="Medium"  FontSize="14"  VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <Label Content="Cod de utilizator" Margin="10 2" ></Label>
+            <TextBox Margin="10 2"></TextBox>
+            <Label Content="Parola" Margin="10 2"></Label>
+            <PasswordBox Margin="10 2"></PasswordBox>
+            <Button Content="Autentifica-te in HomeBank" Margin="10"></Button>
+        </StackPanel>
+
     </Grid>
 </Page>
