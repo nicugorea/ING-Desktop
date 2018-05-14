@@ -1,0 +1,78 @@
+﻿<Page x:Class="WPF.Pages.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="RegisterPage">
+
+    <Grid>
+
+        <StackPanel HorizontalAlignment="Center">
+
+            <StackPanel Grid.Row="0" Margin="0 0 0 30">
+                <Label Content="ING Home'Bank" FontSize="20" FontWeight="Bold" Foreground="Orange"></Label>
+                    <Label Content="Completeaza cu atentie toate cimpurile." FontSize="16" FontWeight="Medium"></Label>
+                </StackPanel>
+            <StackPanel Orientation="Horizontal">
+
+
+
+                <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" >
+
+                    <StackPanel.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="Height" Value="30"/>
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <Label Content="Nume utilizator"></Label>
+                    <Label Content="Parola"></Label>
+                    <Label Content="Confirmare parola"></Label>
+                    <Label Content="Nume"></Label>
+                    <Label Content="Prenume"></Label>
+                </StackPanel>
+
+
+                <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBox">
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="Width" Value="200"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        </Style>
+
+                        <Style TargetType="PasswordBox">
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="Width" Value="200"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        </Style>
+
+                    </StackPanel.Resources>
+                    <TextBox x:Name="inputUsername"/>
+                    <PasswordBox x:Name="inputPassword"/>
+                    <PasswordBox x:Name="inputConfirmPassword"/>
+                    <TextBox x:Name="inputFirstName"/>
+                    <TextBox x:Name="inputLastName"/>
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+
+                <Button Content="Inregistreaza-te" Padding="15 0" Margin="0 5" FontSize="16" FontWeight="Normal" Background="Orange" Foreground="White"/>
+                <Button Content="Inapoi" Padding="15 0" Margin="0 5" FontSize="16" FontWeight="Normal" Background="Gray" Foreground="White" Click="GoToLogin"/>
+
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

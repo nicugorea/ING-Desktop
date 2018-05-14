@@ -5,24 +5,60 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPF.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="LoginPage">
 
     <Grid>
 
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
 
-        <!-- title -->
-            <StackPanel Orientation="Horizontal" Background="LightGray">
-                <Image Source="../img/icon-lock-orange.png" Height="20" HorizontalAlignment="Left"/>
-                <Label Content="Te rugăm să te autentifici" Foreground="Black" FontWeight="Medium"  FontSize="14"  VerticalContentAlignment="Center"/>
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border BorderBrush="LightGray" BorderThickness="1" Margin="10" VerticalAlignment="Center">
+
+
+                <StackPanel Grid.Row="1">
+
+                    <!-- title -->
+                    <StackPanel Orientation="Horizontal" Background="LightGray">
+                        <Image Source="../img/icon-lock-orange.png" Height="20" HorizontalAlignment="Left"/>
+                        <Label Content="Te rugăm să te autentifici" Foreground="Black" FontWeight="Medium"  FontSize="14"  VerticalContentAlignment="Center"/>
+                    </StackPanel>
+
+                    <Label Content="Cod de utilizator" Margin="10 2" ></Label>
+                    <TextBox x:Name="inputUsername" Margin="10 2"></TextBox>
+                    <Label Content="Parola" Margin="10 2"></Label>
+                    <PasswordBox x:Name="inputPassword" Margin="10 2"></PasswordBox>
+                    <Button Content="Autentifica-te in HomeBank" Margin="10 2" Click="ButtonClickLogin"></Button>
+                    <Button Content="Creeaza un cont nou" Margin="10 2" Click="CreateNewAccount"></Button>
+                </StackPanel>
+
+            </Border>
+            <Image Grid.Column="1" Source="../img/banner.png"/>
+        </Grid>
+
+        <!-- New User tab -->
+        <StackPanel Grid.Row="0">
+            <Label Content="ING Home'Bank" Foreground="Orange" FontWeight="Bold" FontSize="20"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Esti client ING si nu ai inca ING Home'Bank?" FontWeight="Medium" FontSize="18"/>
+                <Label Content="Creeaza cont." FontWeight="Medium" FontSize="18" MouseLeftButtonDown="CreateNewAccount"/>
             </StackPanel>
-            <Label Content="Cod de utilizator" Margin="10 2" ></Label>
-            <TextBox Margin="10 2"></TextBox>
-            <Label Content="Parola" Margin="10 2"></Label>
-            <PasswordBox Margin="10 2"></PasswordBox>
-            <Button Content="Autentifica-te in HomeBank" Margin="10"></Button>
         </StackPanel>
+
+
+
+
+
 
     </Grid>
 </Page>

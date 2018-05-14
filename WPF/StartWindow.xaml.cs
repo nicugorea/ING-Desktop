@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using System.Windows.Controls;
 using WPF.Pages;
 
 namespace WPF
@@ -11,12 +12,12 @@ namespace WPF
         public StartWindow()
         {
             InitializeComponent();
-            loginFrame.Content = new LoginPage(this);
+            mainFrame.Content = new LoginPage(this);
         }
 
-        private void CreateNewAccount(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        public void SetMainFrame(Page page)
         {
-            return;
+            mainFrame.Content = page;
         }
     }
 }

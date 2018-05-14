@@ -17,46 +17,16 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <!-- Logo bar -->
-                <RowDefinition Height="1*"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
 
-                <!-- Register -->
-                <RowDefinition Height="1*"/>
-
-                <!-- Login -->
-                <RowDefinition Height="2*"/>
-
-                <!-- Tools & Social -->
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-                <Frame x:Name="loginFrame" Grid.Column="0"  BorderThickness="1" BorderBrush="LightGray" Margin="10"  Grid.RowSpan="6"></Frame>
-                <Image Grid.Column="1" Source="img/banner.png"/>
-            </Grid>
-            <!-- Logo tab -->
-            <Image Source="img/ING_logo.png" Height="30" HorizontalAlignment="Left"/>
-            <Image Source="img/HB_logo.png" Height="30" HorizontalAlignment="Right"/>
-            <Separator Foreground="LightGray" VerticalAlignment="Bottom"/>
-
-            <!-- New User tab -->
-            <StackPanel Grid.Row="1">
-                <Label Content="ING Home'Bank" Foreground="Orange" FontWeight="Bold" FontSize="20"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Esti client ING si nu ai inca ING Home'Bank?" FontWeight="Medium" FontSize="18"/>
-                    <Label Content="Creeaza cont." FontWeight="Medium" FontSize="18" MouseLeftButtonDown="CreateNewAccount"/>
-                </StackPanel>
-            </StackPanel>
-
-        </Grid>
-
-
+        <!-- Logo tab -->
+        <Image Source="img/ING_logo.png" Height="30" Grid.Column="1" HorizontalAlignment="Left"></Image>
+        <Image Source="img/HB_logo.png" Height="30" Grid.Column="1" HorizontalAlignment="Right"></Image>
+        <Separator Grid.Column="1" VerticalAlignment="Bottom"></Separator>
+        <Frame x:Name="mainFrame" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Control:MetroWindow>
