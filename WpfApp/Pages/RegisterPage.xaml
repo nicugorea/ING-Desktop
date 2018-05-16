@@ -67,8 +67,8 @@
 
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">
-
-                <Button Content="Inregistreaza-te" Padding="15 0" Margin="0 5" FontSize="16" FontWeight="Normal" Background="Orange" Foreground="White"/>
+                <Label x:Name="RegisterMessage" Content="" Margin="0 5"></Label>
+                <Button Content="Inregistreaza-te" Padding="15 0" Margin="0 5" FontSize="16" FontWeight="Normal" Background="Orange" Foreground="White" Click="CreateNewAccount"/>
                 <Button Content="Inapoi" Padding="15 0" Margin="0 5" FontSize="16" FontWeight="Normal" Background="Gray" Foreground="White" Click="GoToLogin"/>
 
             </StackPanel>
