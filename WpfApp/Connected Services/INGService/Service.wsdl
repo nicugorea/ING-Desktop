@@ -13,16 +13,35 @@
   <wsdl:message name="IINGService_AddUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IINGService_LogIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogIn" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_LogIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogInResponse" />
+  </wsdl:message>
   <wsdl:portType name="IINGService">
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IINGService/AddUser" message="tns:IINGService_AddUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IINGService/AddUserResponse" message="tns:IINGService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IINGService/LogIn" message="tns:IINGService_LogIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IINGService/LogInResponse" message="tns:IINGService_LogIn_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IINGService" type="tns:IINGService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="AddUser">
       <soap:operation soapAction="http://tempuri.org/IINGService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap:operation soapAction="http://tempuri.org/IINGService/LogIn" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

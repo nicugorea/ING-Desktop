@@ -9,7 +9,9 @@ namespace INGServer
     {
 
         [OperationContract]
-        void AddUser(User user);
+        bool AddUser(User user);
 
+        [OperationContract]
+        bool LogIn(string username, string password);
     }
 }

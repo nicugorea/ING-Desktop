@@ -127,10 +127,16 @@ namespace WpfApp.INGService {
     public interface IINGService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/AddUser", ReplyAction="http://tempuri.org/IINGService/AddUserResponse")]
-        void AddUser(WpfApp.INGService.User user);
+        bool AddUser(WpfApp.INGService.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/AddUser", ReplyAction="http://tempuri.org/IINGService/AddUserResponse")]
-        System.Threading.Tasks.Task AddUserAsync(WpfApp.INGService.User user);
+        System.Threading.Tasks.Task<bool> AddUserAsync(WpfApp.INGService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/LogIn", ReplyAction="http://tempuri.org/IINGService/LogInResponse")]
+        bool LogIn(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/LogIn", ReplyAction="http://tempuri.org/IINGService/LogInResponse")]
+        System.Threading.Tasks.Task<bool> LogInAsync(string username, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -160,12 +166,20 @@ namespace WpfApp.INGService {
                 base(binding, remoteAddress) {
         }
         
-        public void AddUser(WpfApp.INGService.User user) {
-            base.Channel.AddUser(user);
+        public bool AddUser(WpfApp.INGService.User user) {
+            return base.Channel.AddUser(user);
         }
         
-        public System.Threading.Tasks.Task AddUserAsync(WpfApp.INGService.User user) {
+        public System.Threading.Tasks.Task<bool> AddUserAsync(WpfApp.INGService.User user) {
             return base.Channel.AddUserAsync(user);
+        }
+        
+        public bool LogIn(string username, string password) {
+            return base.Channel.LogIn(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LogInAsync(string username, string password) {
+            return base.Channel.LogInAsync(username, password);
         }
     }
 }

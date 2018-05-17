@@ -7,15 +7,45 @@ namespace WPF.Pages
     {
         private StartWindow _startWindow = null;
 
+        public RegisterPage(StartWindow startWindow)
+        {
+            InitializeComponent();
+            _startWindow = startWindow;
+        }
+
         private void SetMessage(string message)
         {
             RegisterMessage.Content = message;
         }
 
-        public RegisterPage(StartWindow startWindow)
+        private bool IsInputOk()
         {
-            InitializeComponent();
-            _startWindow = startWindow;
+            if (inputUsername.Text.Length < 6)
+            {
+                SetMessage("Numele de utilizator contine mai putin de 6 caractere!");
+                return false;
+            }
+            if (inputPassword.Password.Length < 6)
+            {
+                SetMessage("Parola contine mai putin de 6 caractere!");
+                return false;
+            }
+            if (inputPassword.Password != inputConfirmPassword.Password)
+            {
+                SetMessage("Parolele nu coincid");
+                return false;
+            }
+            if (inputFirstName.Text.Length < 6)
+            {
+                SetMessage("Numele contine mai putin de 6 caractere!");
+                return false;
+            }
+            if (inputLastName.Text.Length < 6)
+            {
+                SetMessage("Prenumele contine mai putin de 6 caractere!");
+                return false;
+            }
+            return true;
         }
 
         private void GoToLogin(object sender, System.Windows.RoutedEventArgs e)
@@ -25,11 +55,8 @@ namespace WPF.Pages
 
         private void CreateNewAccount(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (inputConfirmPassword.Password != inputPassword.Password)
-            {
-                SetMessage("Parolele nu coincid!");
-                return;
-            }
+
+            if (!IsInputOk()) return;
 
             var newUser = new User
             {
@@ -38,10 +65,10 @@ namespace WPF.Pages
                 first_name = inputFirstName.Text,
                 last_name = inputLastName.Text
             };
-            string message = WpfApp.src.Utility.IsUserValid(newUser);
-            if (message == "Ok")
-                DatabaseContext.Instance.ServiceClient.AddUser(newUser);
-            SetMessage(message);
+
+            if (DatabaseContext.Instance.ServiceClient.AddUser(newUser))
+                SetMessage("Registered");
+            else SetMessage("Username is used!");
         }
     }
 }

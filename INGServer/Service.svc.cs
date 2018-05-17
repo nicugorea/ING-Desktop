@@ -1,6 +1,7 @@
 ﻿using INGServer.Models;
 using System;
 using System.Data.Entity.Validation;
+using System.Linq;
 
 namespace INGServer
 {
@@ -11,11 +12,24 @@ namespace INGServer
 
         private static INGDBEntities _database = new INGDBEntities();
 
-        void IINGService.AddUser(User user)
+        bool IINGService.AddUser(User user)
         {
-            user.password= user.password.GetHashCode().ToString();
+            var query = _database.Users.FirstOrDefault(u => u.username == user.username);
+
+            if (query != null) return false;
+            user.password = user.password.GetHashCode().ToString();
             _database.Users.Add(user);
-            _database.SaveChanges();
+            _database.SaveChangesAsync();
+            return true;
+        }
+
+        bool IINGService.LogIn(string username, string password)
+        {
+            var query = _database.Users.FirstOrDefault(u => u.username == username);
+            if (query == null) return false;
+            if (query.password != password.GetHashCode().ToString())
+                return false;
+            return true;
         }
     }
 }

@@ -12,9 +12,32 @@ namespace WPF.Pages
             _startWindow = startWindow;
         }
 
+        private void SetMessage(string message)
+        {
+            LoginMessage.Content = message;
+        }
+
+        private bool IsInputOk()
+        {
+            if (inputUsername.Text.Length < 6)
+            {
+                SetMessage("Numele de utilizator are mai putin de 6 caractere!");
+                return false;
+            }
+            if (inputPassword.Password.Length < 6)
+            {
+                SetMessage("Parola are mai putin de 6 caractere!");
+                return false;
+            }
+            return true;
+        }
+
         private void ButtonClickLogin(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (!IsInputOk()) return;
+            if (DatabaseContext.Instance.ServiceClient.LogIn(inputUsername.Text, inputPassword.Password))
+                SetMessage("Autentificare cu succes");
+                
         }
 
         private void CreateNewAccount(object sender, System.Windows.Input.MouseButtonEventArgs e)
