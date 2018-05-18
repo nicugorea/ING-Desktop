@@ -25,6 +25,9 @@ namespace INGServer.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<FavouritePayment> FavouritePayments { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

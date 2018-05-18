@@ -5,6 +5,35 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="INGDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="id_account" />
+          </Key>
+          <Property Name="id_account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="balance" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FavouritePayments">
+          <Key>
+            <PropertyRef Name="id_payment" />
+          </Key>
+          <Property Name="id_payment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_account" Type="int" Nullable="false" />
+          <Property Name="id_reciever" Type="int" Nullable="false" />
+          <Property Name="amount" Type="money" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="id_payment" />
+          </Key>
+          <Property Name="id_payment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_sender" Type="int" Nullable="false" />
+          <Property Name="id_reciever" Type="int" Nullable="false" />
+          <Property Name="amount" Type="money" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="id_user" />
@@ -14,15 +43,121 @@
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="first_name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="strada_nume" Type="nvarchar" MaxLength="50" />
+          <Property Name="strada_numar" Type="nvarchar" MaxLength="50" />
+          <Property Name="strada_apartament" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Association Name="Account_favouritePayment">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="FavouritePayments" Type="Self.FavouritePayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="FavouritePayments">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Account_reciever">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="id_reciever" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Account_sender">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="id_sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_Accounts">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="INGDBModelStoreContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FavouritePayments" EntityType="Self.FavouritePayments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Account_favouritePayment" Association="Self.Account_favouritePayment">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="FavouritePayments" EntitySet="FavouritePayments" />
+          </AssociationSet>
+          <AssociationSet Name="Account_reciever" Association="Self.Account_reciever">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="Account_sender" Association="Self.Account_sender">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="User_Accounts" Association="Self.User_Accounts">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="INGDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id_account" />
+          </Key>
+          <Property Name="id_account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="balance" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="FavouritePayments" Relationship="Self.Account_favouritePayment" FromRole="Accounts" ToRole="FavouritePayments" />
+          <NavigationProperty Name="Payments" Relationship="Self.Account_reciever" FromRole="Accounts" ToRole="Payments" />
+          <NavigationProperty Name="Payments1" Relationship="Self.Account_sender" FromRole="Accounts" ToRole="Payments" />
+          <NavigationProperty Name="User" Relationship="Self.User_Accounts" FromRole="Accounts" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="FavouritePayment">
+          <Key>
+            <PropertyRef Name="id_payment" />
+          </Key>
+          <Property Name="id_payment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_account" Type="Int32" Nullable="false" />
+          <Property Name="id_reciever" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="Self.Account_favouritePayment" FromRole="FavouritePayments" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="id_payment" />
+          </Key>
+          <Property Name="id_payment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_sender" Type="Int32" Nullable="false" />
+          <Property Name="id_reciever" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="Self.Account_reciever" FromRole="Payments" ToRole="Accounts" />
+          <NavigationProperty Name="Account1" Relationship="Self.Account_sender" FromRole="Payments" ToRole="Accounts" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="id_user" />
@@ -32,9 +167,80 @@
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="strada_nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strada_numar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strada_apartament" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="Self.User_Accounts" FromRole="Users" ToRole="Accounts" />
         </EntityType>
+        <Association Name="Account_favouritePayment">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="1" />
+          <End Role="FavouritePayments" Type="Self.FavouritePayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="FavouritePayments">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Account_reciever">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="id_reciever" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Account_sender">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="id_sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_Accounts">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="INGDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="FavouritePayments" EntityType="Self.FavouritePayment" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="Account_favouritePayment" Association="Self.Account_favouritePayment">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="FavouritePayments" EntitySet="FavouritePayments" />
+          </AssociationSet>
+          <AssociationSet Name="Account_reciever" Association="Self.Account_reciever">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="Account_sender" Association="Self.Account_sender">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="User_Accounts" Association="Self.User_Accounts">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -42,6 +248,38 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="INGDBModelStoreContainer" CdmEntityContainer="INGDBEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="INGDBModel.Account">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FavouritePayments">
+            <EntityTypeMapping TypeName="INGDBModel.FavouritePayment">
+              <MappingFragment StoreEntitySet="FavouritePayments">
+                <ScalarProperty Name="id_payment" ColumnName="id_payment" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_reciever" ColumnName="id_reciever" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="INGDBModel.Payment">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="id_payment" ColumnName="id_payment" />
+                <ScalarProperty Name="id_sender" ColumnName="id_sender" />
+                <ScalarProperty Name="id_reciever" ColumnName="id_reciever" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="INGDBModel.User">
               <MappingFragment StoreEntitySet="Users">
@@ -50,6 +288,9 @@
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="first_name" ColumnName="first_name" />
                 <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="strada_nume" ColumnName="strada_nume" />
+                <ScalarProperty Name="strada_numar" ColumnName="strada_numar" />
+                <ScalarProperty Name="strada_apartament" ColumnName="strada_apartament" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

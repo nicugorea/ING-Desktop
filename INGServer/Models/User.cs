@@ -14,10 +14,22 @@ namespace INGServer.Models
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Accounts = new HashSet<Account>();
+        }
+    
         public int id_user { get; set; }
         public string username { get; set; }
         public string password { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
+        public string strada_nume { get; set; }
+        public string strada_numar { get; set; }
+        public string strada_apartament { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }
