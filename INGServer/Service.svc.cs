@@ -12,6 +12,14 @@ namespace INGServer
 
         private static INGDBEntities _database = new INGDBEntities();
 
+        public int GetUserIdByUsername(string username)
+        {
+            var query = _database.Users.FirstOrDefault(u => u.username == username);
+            if (query != null)
+                return query.id_user;
+            return -1;
+        }
+
         bool IINGService.AddUser(User user)
         {
             var query = _database.Users.FirstOrDefault(u => u.username == user.username);
@@ -21,6 +29,11 @@ namespace INGServer
             _database.Users.Add(user);
             _database.SaveChangesAsync();
             return true;
+        }
+
+        User IINGService.GetUser(int id)
+        {
+            return _database.Users.Find(id);
         }
 
         bool IINGService.LogIn(string username, string password)

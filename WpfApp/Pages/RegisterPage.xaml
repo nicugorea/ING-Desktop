@@ -13,7 +13,7 @@
         <StackPanel HorizontalAlignment="Center">
 
             <StackPanel Grid.Row="0" Margin="0 0 0 30">
-                <Label Content="ING Home'Bank" FontSize="20" FontWeight="Bold" Foreground="Orange"></Label>
+                <Label Content="ING Home'Bank" FontSize="20" FontWeight="Bold" Foreground="OrangeRed"></Label>
                     <Label Content="Completeaza cu atentie toate cimpurile." FontSize="16" FontWeight="Medium"></Label>
                 </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -68,7 +68,7 @@
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">
                 <Label x:Name="RegisterMessage" Content="" Margin="0 5"></Label>
-                <Button Content="Inregistreaza-te" Padding="15 0" Margin="0 5" FontSize="16" FontWeight="Normal" Background="Orange" Foreground="White" Click="CreateNewAccount"/>
+                <Button Content="Inregistreaza-te" Padding="15 0" Margin="0 5" FontSize="16" FontWeight="Normal" Background="OrangeRed" Foreground="White" Click="CreateNewAccount"/>
                 <Button Content="Inapoi" Padding="15 0" Margin="0 5" FontSize="16" FontWeight="Normal" Background="Gray" Foreground="White" Click="GoToLogin"/>
 
             </StackPanel>

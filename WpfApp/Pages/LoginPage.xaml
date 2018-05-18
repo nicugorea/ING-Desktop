@@ -30,7 +30,7 @@
 
                     <!-- title -->
                     <StackPanel Orientation="Horizontal" Background="LightGray">
-                        <Image Source="../img/icon-lock-orange.png" Height="20" HorizontalAlignment="Left"/>
+                        <Image Source="../img/icon-lock-OrangeRed.png" Height="20" HorizontalAlignment="Left"/>
                         <Label Content="Te rugăm să te autentifici" Foreground="Black" FontWeight="Medium"  FontSize="14"  VerticalContentAlignment="Center"/>
                     </StackPanel>
 
@@ -49,7 +49,7 @@
 
         <!-- New User tab -->
         <StackPanel Grid.Row="0">
-            <Label Content="ING Home'Bank" Foreground="Orange" FontWeight="Bold" FontSize="20"/>
+            <Label Content="ING Home'Bank" Foreground="OrangeRed" FontWeight="Bold" FontSize="20"/>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Esti client ING si nu ai inca ING Home'Bank?" FontWeight="Medium" FontSize="18"/>
                 <Label Content="Creeaza cont." FontWeight="Medium" FontSize="18" MouseLeftButtonDown="CreateNewAccount"/>

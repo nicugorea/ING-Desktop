@@ -1,0 +1,25 @@
+﻿<Page x:Class="WpfApp.Pages.ProfileWindow.BannerTab"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp.Pages.ProfileWindow"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="400"
+      Title="BannerTab">
+
+    <Grid>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Stretch" Value="UniformToFill"/>
+                </Style>
+            </StackPanel.Resources>
+            <Image Source="../../img/banner.png"/>
+            <Image Source="../../img/banner2.jpg"/>
+            <Image Source="../../img/banner3.jpg"/>
+            <Image Source="../../img/banner4.png"/>
+            <Image Source="../../img/aduna-ti_prietenii.jpg"/>
+        </StackPanel>
+    </Grid>
+</Page>

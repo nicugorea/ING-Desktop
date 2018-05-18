@@ -13,5 +13,11 @@ namespace INGServer
 
         [OperationContract]
         bool LogIn(string username, string password);
+
+        [OperationContract]
+        User GetUser(int id);
+
+        [OperationContract]
+        int GetUserIdByUsername(string username);
     }
 }

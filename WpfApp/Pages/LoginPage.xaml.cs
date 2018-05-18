@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using WpfApp;
 
 namespace WPF.Pages
 {
@@ -36,7 +37,14 @@ namespace WPF.Pages
         {
             if (!IsInputOk()) return;
             if (DatabaseContext.Instance.ServiceClient.LogIn(inputUsername.Text, inputPassword.Password))
+            {
                 SetMessage("Autentificare cu succes");
+                ProfilePage profileWindow = new ProfilePage(
+                    DatabaseContext.Instance.ServiceClient.GetUserIdByUsername(inputUsername.Text));
+                App.Current.MainWindow = profileWindow;
+                _startWindow.Close();
+                profileWindow.Show();
+            }
                 
         }
 

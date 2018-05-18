@@ -19,6 +19,18 @@
   <wsdl:message name="IINGService_LogIn_OutputMessage">
     <wsdl:part name="parameters" element="tns:LogInResponse" />
   </wsdl:message>
+  <wsdl:message name="IINGService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_GetUserIdByUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserIdByUsername" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_GetUserIdByUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserIdByUsernameResponse" />
+  </wsdl:message>
   <wsdl:portType name="IINGService">
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IINGService/AddUser" message="tns:IINGService_AddUser_InputMessage" />
@@ -27,6 +39,14 @@
     <wsdl:operation name="LogIn">
       <wsdl:input wsaw:Action="http://tempuri.org/IINGService/LogIn" message="tns:IINGService_LogIn_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IINGService/LogInResponse" message="tns:IINGService_LogIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IINGService/GetUser" message="tns:IINGService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IINGService/GetUserResponse" message="tns:IINGService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdByUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IINGService/GetUserIdByUsername" message="tns:IINGService_GetUserIdByUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IINGService/GetUserIdByUsernameResponse" message="tns:IINGService_GetUserIdByUsername_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IINGService" type="tns:IINGService">
@@ -42,6 +62,24 @@
     </wsdl:operation>
     <wsdl:operation name="LogIn">
       <soap:operation soapAction="http://tempuri.org/IINGService/LogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IINGService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdByUsername">
+      <soap:operation soapAction="http://tempuri.org/IINGService/GetUserIdByUsername" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

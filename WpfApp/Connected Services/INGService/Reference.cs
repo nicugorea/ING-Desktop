@@ -137,6 +137,18 @@ namespace WpfApp.INGService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/LogIn", ReplyAction="http://tempuri.org/IINGService/LogInResponse")]
         System.Threading.Tasks.Task<bool> LogInAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetUser", ReplyAction="http://tempuri.org/IINGService/GetUserResponse")]
+        WpfApp.INGService.User GetUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetUser", ReplyAction="http://tempuri.org/IINGService/GetUserResponse")]
+        System.Threading.Tasks.Task<WpfApp.INGService.User> GetUserAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetUserIdByUsername", ReplyAction="http://tempuri.org/IINGService/GetUserIdByUsernameResponse")]
+        int GetUserIdByUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetUserIdByUsername", ReplyAction="http://tempuri.org/IINGService/GetUserIdByUsernameResponse")]
+        System.Threading.Tasks.Task<int> GetUserIdByUsernameAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -180,6 +192,22 @@ namespace WpfApp.INGService {
         
         public System.Threading.Tasks.Task<bool> LogInAsync(string username, string password) {
             return base.Channel.LogInAsync(username, password);
+        }
+        
+        public WpfApp.INGService.User GetUser(int id) {
+            return base.Channel.GetUser(id);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApp.INGService.User> GetUserAsync(int id) {
+            return base.Channel.GetUserAsync(id);
+        }
+        
+        public int GetUserIdByUsername(string username) {
+            return base.Channel.GetUserIdByUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetUserIdByUsernameAsync(string username) {
+            return base.Channel.GetUserIdByUsernameAsync(username);
         }
     }
 }
