@@ -2,12 +2,70 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/INGServer.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/INGServer.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="User">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Accounts" nillable="true" type="tns:ArrayOfAccount" />
       <xs:element minOccurs="0" name="first_name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="id_user" type="xs:int" />
       <xs:element minOccurs="0" name="last_name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strada_apartament" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strada_numar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strada_nume" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Account" nillable="true" type="tns:Account" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccount" nillable="true" type="tns:ArrayOfAccount" />
+  <xs:complexType name="Account">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FavouritePayments" nillable="true" type="tns:ArrayOfFavouritePayment" />
+      <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPayment" />
+      <xs:element minOccurs="0" name="Payments1" nillable="true" type="tns:ArrayOfPayment" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="balance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="id_account" type="xs:int" />
+      <xs:element minOccurs="0" name="id_user" type="xs:int" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Account" nillable="true" type="tns:Account" />
+  <xs:complexType name="ArrayOfFavouritePayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FavouritePayment" nillable="true" type="tns:FavouritePayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFavouritePayment" nillable="true" type="tns:ArrayOfFavouritePayment" />
+  <xs:complexType name="FavouritePayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Account" nillable="true" type="tns:Account" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="id_account" type="xs:int" />
+      <xs:element minOccurs="0" name="id_payment" type="xs:int" />
+      <xs:element minOccurs="0" name="id_reciever" type="xs:int" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FavouritePayment" nillable="true" type="tns:FavouritePayment" />
+  <xs:complexType name="ArrayOfPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Payment" nillable="true" type="tns:Payment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPayment" nillable="true" type="tns:ArrayOfPayment" />
+  <xs:complexType name="Payment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Account" nillable="true" type="tns:Account" />
+      <xs:element minOccurs="0" name="Account1" nillable="true" type="tns:Account" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="id_payment" type="xs:int" />
+      <xs:element minOccurs="0" name="id_reciever" type="xs:int" />
+      <xs:element minOccurs="0" name="id_sender" type="xs:int" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Payment" nillable="true" type="tns:Payment" />
 </xs:schema>

@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPF;
+using WpfApp.INGService;
 
 namespace WpfApp.Pages.ProfileWindow
 {
@@ -35,7 +24,7 @@ namespace WpfApp.Pages.ProfileWindow
 
         private void InitializeName()
         {
-            var user = DatabaseContext.Instance.ServiceClient.GetUser(_id);
+             var user = DatabaseContext.Instance.ServiceClient.GetUser(_id);
             btnNameSurname.Content = user.first_name + " " + user.last_name;
         }
 

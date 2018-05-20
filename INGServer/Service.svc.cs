@@ -10,39 +10,55 @@ namespace INGServer
     public class Service : IINGService
     {
 
-        private static INGDBEntities _database = new INGDBEntities();
+
 
         public int GetUserIdByUsername(string username)
         {
-            var query = _database.Users.FirstOrDefault(u => u.username == username);
+            using (var database = new INGDBEntities())
+            {
+
+                var query = database.Users.FirstOrDefault(u => u.username == username);
             if (query != null)
                 return query.id_user;
             return -1;
+            }
         }
 
         bool IINGService.AddUser(User user)
         {
-            var query = _database.Users.FirstOrDefault(u => u.username == user.username);
+            using (var database = new INGDBEntities())
+            {
+                var query = database.Users.FirstOrDefault(u => u.username == user.username);
 
-            if (query != null) return false;
-            user.password = user.password.GetHashCode().ToString();
-            _database.Users.Add(user);
-            _database.SaveChangesAsync();
-            return true;
+                if (query != null) return false;
+                user.password = user.password.GetHashCode().ToString();
+                database.Users.Add(user);
+                database.SaveChangesAsync();
+                return true;
+            }
         }
 
         User IINGService.GetUser(int id)
         {
-            return _database.Users.Find(id);
+            using (var database = new INGDBEntities())
+            {
+                User user = new User();
+                user = database.Users.Find(id);
+                user = database.Users.Where(u => u.id_user == id).Single();
+                return user;
+            }
         }
 
         bool IINGService.LogIn(string username, string password)
         {
-            var query = _database.Users.FirstOrDefault(u => u.username == username);
-            if (query == null) return false;
-            if (query.password != password.GetHashCode().ToString())
-                return false;
-            return true;
+            using (var database = new INGDBEntities())
+            {
+                var query = database.Users.FirstOrDefault(u => u.username == username);
+                if (query == null) return false;
+                if (query.password != password.GetHashCode().ToString())
+                    return false;
+                return true;
+            }
         }
     }
 }

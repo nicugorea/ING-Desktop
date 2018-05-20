@@ -16,6 +16,7 @@ namespace WpfApp
             topTab.Content = new TopTab(this,_id);
             optionsTab.Content = new OptionsTab();
             helpTab.Content = new BannerTab();
+
         }
     }
 }
