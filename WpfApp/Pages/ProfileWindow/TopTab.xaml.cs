@@ -5,26 +5,25 @@ using WpfApp.INGService;
 
 namespace WpfApp.Pages.ProfileWindow
 {
-    /// <summary>
-    /// Interaction logic for TopTab.xaml
-    /// </summary>
     public partial class TopTab : Page
     {
-        private ProfilePage _profileWindow = null;
+        private ProfilePage _profilePage = null;
 
-        private int _id = -1;
-
-        public TopTab(ProfilePage profileWindow, int id)
+        public TopTab(ProfilePage profilePage)
         {
             InitializeComponent();
-            _profileWindow = profileWindow;
-            _id = id;
+            _profilePage = profilePage;
             InitializeName();
+        }
+
+        public void SetAccountId(int id)
+        {
+            btnAccountId.Content = id;
         }
 
         private void InitializeName()
         {
-             var user = DatabaseContext.Instance.ServiceClient.GetUser(_id);
+             var user = DatabaseContext.Instance.ServiceClient.GetUser(_profilePage.Id);
             btnNameSurname.Content = user.first_name + " " + user.last_name;
         }
 
@@ -43,8 +42,13 @@ namespace WpfApp.Pages.ProfileWindow
             var startWindow = new StartWindow();
             App.Current.MainWindow = startWindow;
 
-            _profileWindow.Close();
+            _profilePage.Close();
             startWindow.Show();
+        }
+
+        private void BtnAccountId(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -81,8 +81,20 @@
     <Compile Include="Pages\ProfileWindow\BannerTab.xaml.cs">
       <DependentUpon>BannerTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ProfileWindow\CreateAccount.xaml.cs">
+      <DependentUpon>CreateAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfileWindow\MyAccounsPage.xaml.cs">
+      <DependentUpon>MyAccounsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfileWindow\MyPayments.xaml.cs">
+      <DependentUpon>MyPayments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProfileWindow\OptionsTab.xaml.cs">
       <DependentUpon>OptionsTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfileWindow\PayPage.xaml.cs">
+      <DependentUpon>PayPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProfileWindow\TopTab.xaml.cs">
       <DependentUpon>TopTab.xaml</DependentUpon>
@@ -127,6 +139,12 @@
     <None Include="Connected Services\INGService\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\INGService\WpfApp.INGService.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\INGService\WpfApp.INGService.Payment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\INGService\WpfApp.INGService.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -151,7 +169,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ProfileWindow\CreateAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProfileWindow\MyAccounsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProfileWindow\MyPayments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ProfileWindow\OptionsTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProfileWindow\PayPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

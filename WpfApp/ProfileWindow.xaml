@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
         WindowTitleBrush="White"
+        WindowState="Maximized"
         Title="" Height="800" Width="1200">
     <Grid Background="LightGray">
         <Grid.RowDefinitions>
@@ -31,9 +32,9 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
-            <Frame x:Name="optionsTab" Grid.Column="0" Background="White"/>
-            <Frame x:Name="mainFrame" Grid.Column="2" Background="White"/>
-            <Frame x:Name="helpTab" Grid.Column="5" Background="White"/>
+            <Frame x:Name="optionsTab" Grid.Column="0" Background="White" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="mainFrame" Grid.Column="2" Background="White" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="helpTab" Grid.Column="5" Background="White" NavigationUIVisibility="Hidden"/>
         </Grid>
 
     </Grid>

@@ -23,9 +23,6 @@ namespace WpfApp.INGService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfApp.INGService.Account[] AccountsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string first_nameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -56,19 +53,6 @@ namespace WpfApp.INGService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfApp.INGService.Account[] Accounts {
-            get {
-                return this.AccountsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AccountsField, value) != true)) {
-                    this.AccountsField = value;
-                    this.RaisePropertyChanged("Accounts");
-                }
             }
         }
         
@@ -188,300 +172,12 @@ namespace WpfApp.INGService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/INGServer.Models")]
-    [System.SerializableAttribute()]
-    public partial class Account : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfApp.INGService.FavouritePayment[] FavouritePaymentsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfApp.INGService.Payment[] PaymentsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfApp.INGService.Payment[] Payments1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfApp.INGService.User UserField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal balanceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int id_accountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int id_userField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfApp.INGService.FavouritePayment[] FavouritePayments {
-            get {
-                return this.FavouritePaymentsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FavouritePaymentsField, value) != true)) {
-                    this.FavouritePaymentsField = value;
-                    this.RaisePropertyChanged("FavouritePayments");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfApp.INGService.Payment[] Payments {
-            get {
-                return this.PaymentsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaymentsField, value) != true)) {
-                    this.PaymentsField = value;
-                    this.RaisePropertyChanged("Payments");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfApp.INGService.Payment[] Payments1 {
-            get {
-                return this.Payments1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Payments1Field, value) != true)) {
-                    this.Payments1Field = value;
-                    this.RaisePropertyChanged("Payments1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfApp.INGService.User User {
-            get {
-                return this.UserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal balance {
-            get {
-                return this.balanceField;
-            }
-            set {
-                if ((this.balanceField.Equals(value) != true)) {
-                    this.balanceField = value;
-                    this.RaisePropertyChanged("balance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id_account {
-            get {
-                return this.id_accountField;
-            }
-            set {
-                if ((this.id_accountField.Equals(value) != true)) {
-                    this.id_accountField = value;
-                    this.RaisePropertyChanged("id_account");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id_user {
-            get {
-                return this.id_userField;
-            }
-            set {
-                if ((this.id_userField.Equals(value) != true)) {
-                    this.id_userField = value;
-                    this.RaisePropertyChanged("id_user");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FavouritePayment", Namespace="http://schemas.datacontract.org/2004/07/INGServer.Models")]
-    [System.SerializableAttribute()]
-    public partial class FavouritePayment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfApp.INGService.Account AccountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal amountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int id_accountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int id_paymentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int id_recieverField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfApp.INGService.Account Account {
-            get {
-                return this.AccountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AccountField, value) != true)) {
-                    this.AccountField = value;
-                    this.RaisePropertyChanged("Account");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal amount {
-            get {
-                return this.amountField;
-            }
-            set {
-                if ((this.amountField.Equals(value) != true)) {
-                    this.amountField = value;
-                    this.RaisePropertyChanged("amount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id_account {
-            get {
-                return this.id_accountField;
-            }
-            set {
-                if ((this.id_accountField.Equals(value) != true)) {
-                    this.id_accountField = value;
-                    this.RaisePropertyChanged("id_account");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id_payment {
-            get {
-                return this.id_paymentField;
-            }
-            set {
-                if ((this.id_paymentField.Equals(value) != true)) {
-                    this.id_paymentField = value;
-                    this.RaisePropertyChanged("id_payment");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id_reciever {
-            get {
-                return this.id_recieverField;
-            }
-            set {
-                if ((this.id_recieverField.Equals(value) != true)) {
-                    this.id_recieverField = value;
-                    this.RaisePropertyChanged("id_reciever");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Payment", Namespace="http://schemas.datacontract.org/2004/07/INGServer.Models")]
     [System.SerializableAttribute()]
     public partial class Payment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfApp.INGService.Account AccountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfApp.INGService.Account Account1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal amountField;
@@ -505,32 +201,6 @@ namespace WpfApp.INGService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfApp.INGService.Account Account {
-            get {
-                return this.AccountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AccountField, value) != true)) {
-                    this.AccountField = value;
-                    this.RaisePropertyChanged("Account");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfApp.INGService.Account Account1 {
-            get {
-                return this.Account1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Account1Field, value) != true)) {
-                    this.Account1Field = value;
-                    this.RaisePropertyChanged("Account1");
-                }
             }
         }
         
@@ -609,6 +279,99 @@ namespace WpfApp.INGService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/INGServer.Models")]
+    [System.SerializableAttribute()]
+    public partial class Account : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal balanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int id_accountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int id_userField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal balance {
+            get {
+                return this.balanceField;
+            }
+            set {
+                if ((this.balanceField.Equals(value) != true)) {
+                    this.balanceField = value;
+                    this.RaisePropertyChanged("balance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id_account {
+            get {
+                return this.id_accountField;
+            }
+            set {
+                if ((this.id_accountField.Equals(value) != true)) {
+                    this.id_accountField = value;
+                    this.RaisePropertyChanged("id_account");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id_user {
+            get {
+                return this.id_userField;
+            }
+            set {
+                if ((this.id_userField.Equals(value) != true)) {
+                    this.id_userField = value;
+                    this.RaisePropertyChanged("id_user");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="INGService.IINGService")]
     public interface IINGService {
@@ -636,6 +399,36 @@ namespace WpfApp.INGService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetUserIdByUsername", ReplyAction="http://tempuri.org/IINGService/GetUserIdByUsernameResponse")]
         System.Threading.Tasks.Task<int> GetUserIdByUsernameAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/AddPayment", ReplyAction="http://tempuri.org/IINGService/AddPaymentResponse")]
+        bool AddPayment(WpfApp.INGService.Payment payment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/AddPayment", ReplyAction="http://tempuri.org/IINGService/AddPaymentResponse")]
+        System.Threading.Tasks.Task<bool> AddPaymentAsync(WpfApp.INGService.Payment payment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetAccounts", ReplyAction="http://tempuri.org/IINGService/GetAccountsResponse")]
+        WpfApp.INGService.Account[] GetAccounts(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetAccounts", ReplyAction="http://tempuri.org/IINGService/GetAccountsResponse")]
+        System.Threading.Tasks.Task<WpfApp.INGService.Account[]> GetAccountsAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetSentPayments", ReplyAction="http://tempuri.org/IINGService/GetSentPaymentsResponse")]
+        WpfApp.INGService.Payment[] GetSentPayments(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetSentPayments", ReplyAction="http://tempuri.org/IINGService/GetSentPaymentsResponse")]
+        System.Threading.Tasks.Task<WpfApp.INGService.Payment[]> GetSentPaymentsAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetRecievedPayments", ReplyAction="http://tempuri.org/IINGService/GetRecievedPaymentsResponse")]
+        WpfApp.INGService.Payment[] GetRecievedPayments(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/GetRecievedPayments", ReplyAction="http://tempuri.org/IINGService/GetRecievedPaymentsResponse")]
+        System.Threading.Tasks.Task<WpfApp.INGService.Payment[]> GetRecievedPaymentsAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/CreateAccount", ReplyAction="http://tempuri.org/IINGService/CreateAccountResponse")]
+        void CreateAccount(WpfApp.INGService.Account account);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IINGService/CreateAccount", ReplyAction="http://tempuri.org/IINGService/CreateAccountResponse")]
+        System.Threading.Tasks.Task CreateAccountAsync(WpfApp.INGService.Account account);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -695,6 +488,46 @@ namespace WpfApp.INGService {
         
         public System.Threading.Tasks.Task<int> GetUserIdByUsernameAsync(string username) {
             return base.Channel.GetUserIdByUsernameAsync(username);
+        }
+        
+        public bool AddPayment(WpfApp.INGService.Payment payment) {
+            return base.Channel.AddPayment(payment);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddPaymentAsync(WpfApp.INGService.Payment payment) {
+            return base.Channel.AddPaymentAsync(payment);
+        }
+        
+        public WpfApp.INGService.Account[] GetAccounts(int id) {
+            return base.Channel.GetAccounts(id);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApp.INGService.Account[]> GetAccountsAsync(int id) {
+            return base.Channel.GetAccountsAsync(id);
+        }
+        
+        public WpfApp.INGService.Payment[] GetSentPayments(int id) {
+            return base.Channel.GetSentPayments(id);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApp.INGService.Payment[]> GetSentPaymentsAsync(int id) {
+            return base.Channel.GetSentPaymentsAsync(id);
+        }
+        
+        public WpfApp.INGService.Payment[] GetRecievedPayments(int id) {
+            return base.Channel.GetRecievedPayments(id);
+        }
+        
+        public System.Threading.Tasks.Task<WpfApp.INGService.Payment[]> GetRecievedPaymentsAsync(int id) {
+            return base.Channel.GetRecievedPaymentsAsync(id);
+        }
+        
+        public void CreateAccount(WpfApp.INGService.Account account) {
+            base.Channel.CreateAccount(account);
+        }
+        
+        public System.Threading.Tasks.Task CreateAccountAsync(WpfApp.INGService.Account account) {
+            return base.Channel.CreateAccountAsync(account);
         }
     }
 }

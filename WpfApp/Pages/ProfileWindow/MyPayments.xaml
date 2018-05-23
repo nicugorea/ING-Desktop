@@ -1,0 +1,33 @@
+﻿<Page x:Class="WpfApp.Pages.ProfileWindow.MyPayments"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp.Pages.ProfileWindow"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="600"
+      Title="MyPayments">
+
+    <Grid>
+        <StackPanel>
+            <Label Content="Raportul tutuor platilor efectuate" HorizontalAlignment="Center" FontSize="24"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"> 
+
+                <DataGrid x:Name="sentPaymentsDatagrid" GridLinesVisibility="None" CanUserAddRows="False" CanUserDeleteRows="False" Padding="20 0" Margin="0 20"
+                      CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="True" CanUserReorderColumns="False" SelectionMode="Extended"
+                      HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                      Style="{StaticResource AzureDataGrid}">
+
+                </DataGrid>
+
+                <DataGrid x:Name="recievedPaymentsDatagrid" GridLinesVisibility="None" CanUserAddRows="False" CanUserDeleteRows="False" Padding="20 0" Margin="0 20"
+                      CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="True" CanUserReorderColumns="False" SelectionMode="Extended"
+                      HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                      Style="{StaticResource AzureDataGrid}">
+
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -29,6 +29,7 @@
                 
                 <Style TargetType="Button" BasedOn="{StaticResource MetroFlatButton}" >
                     <Setter Property="BorderBrush" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="White"/>
                     <Setter Property="Foreground" Value="DodgerBlue"/>
                     <Setter Property="FontSize" Value="14"/>
                     <Setter Property="FontSize" Value="{DynamicResource UpperCaseContentStyle}"/>
@@ -46,8 +47,8 @@
                 <Label Content="Operatiuni"/>
             </StackPanel>
 
-            <Button Content="Plata"/>
-            <Button Content="Platile facute"/>
+            <Button Content="Plata" Click="BtnPay"/>
+            <Button Content="Platile facute" Click="BtnMyPayments"/>
             <Button Content="Platile favorite"/>
 
 
@@ -62,8 +63,8 @@
             
             </StackPanel>
             
-            <Button Content="Conturile mele"/>
-            <Button Content="Vreau cont"/>
+            <Button Content="Conturile mele" Click="BtnMyAccounts"/>
+            <Button Content="Vreau cont" Click="BtnCreateAccount"/>
 
             <!--Setari-->
             <StackPanel Orientation="Horizontal" Style="{StaticResource OptionHeader}">

@@ -1,0 +1,27 @@
+﻿<Page x:Class="WpfApp.Pages.ProfileWindow.MyAccounsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp.Pages.ProfileWindow"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="600"
+      Title="MyAccounsPage">
+
+    <Grid>
+        <StackPanel>
+            <Label Content="Alege unul din conturile tale" HorizontalAlignment="Center" FontSize="24"/>
+            <Button Content="Creaza un cont nou" Padding="15 0" Margin="0 5" FontSize="16" FontWeight="Normal" Background="OrangeRed" Foreground="White" 
+                    Click="BtnCreateAccount"/>
+
+            <DataGrid x:Name="datagridAccounts" GridLinesVisibility="None" CanUserAddRows="False" CanUserDeleteRows="False" Padding="20 0" Margin="0 20"
+                      CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="True" CanUserReorderColumns="False" SelectionMode="Extended"
+                      HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                      Style="{StaticResource AzureDataGrid}">
+
+            </DataGrid>
+            <Button Content="Selecteaza cont" HorizontalAlignment="Center" FontSize="16" FontWeight="Normal" Background="OrangeRed" Foreground="White" 
+                    Click="BtnSelectAccount"/>
+        </StackPanel>
+    </Grid>
+</Page>

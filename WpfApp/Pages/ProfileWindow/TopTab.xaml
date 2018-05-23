@@ -34,6 +34,13 @@
 
             <Rectangle Width="15" Height="20">
                 <Rectangle.Fill>
+                    <VisualBrush Visual="{StaticResource appbar_database}"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Button x:Name="btnAccountId" Content="Unknown" Click="BtnAccountId"/>
+
+            <Rectangle Width="15" Height="20">
+                <Rectangle.Fill>
                     <VisualBrush Visual="{StaticResource appbar_question}"/>
                 </Rectangle.Fill>
             </Rectangle>

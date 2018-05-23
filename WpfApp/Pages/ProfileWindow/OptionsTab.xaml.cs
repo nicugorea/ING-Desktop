@@ -20,9 +20,35 @@ namespace WpfApp.Pages.ProfileWindow
     /// </summary>
     public partial class OptionsTab : Page
     {
-        public OptionsTab()
+
+        private ProfilePage _profilePage = null;
+        public ProfilePage ProfilePage { get => _profilePage; set => _profilePage = value; }
+
+        public OptionsTab(ProfilePage profilePage)
         {
             InitializeComponent();
+            ProfilePage = profilePage;
+        }
+
+
+        private void BtnMyAccounts(object sender, RoutedEventArgs e)
+        {
+            ProfilePage.SetMainFrame(new MyAccounsPage(_profilePage));
+        }
+
+        private void BtnPay(object sender, RoutedEventArgs e)
+        {
+            ProfilePage.SetMainFrame(new PayPage(_profilePage));
+        }
+
+        private void BtnCreateAccount(object sender, RoutedEventArgs e)
+        {
+            ProfilePage.SetMainFrame(new CreateAccount(_profilePage));
+        }
+
+        private void BtnMyPayments(object sender, RoutedEventArgs e)
+        {
+            ProfilePage.SetMainFrame(new MyPayments(_profilePage));
         }
     }
 }

@@ -31,6 +31,36 @@
   <wsdl:message name="IINGService_GetUserIdByUsername_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserIdByUsernameResponse" />
   </wsdl:message>
+  <wsdl:message name="IINGService_AddPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPayment" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_AddPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_GetAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_GetAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_GetSentPayments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSentPayments" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_GetSentPayments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSentPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_GetRecievedPayments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecievedPayments" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_GetRecievedPayments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecievedPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_CreateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IINGService_CreateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccountResponse" />
+  </wsdl:message>
   <wsdl:portType name="IINGService">
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IINGService/AddUser" message="tns:IINGService_AddUser_InputMessage" />
@@ -47,6 +77,26 @@
     <wsdl:operation name="GetUserIdByUsername">
       <wsdl:input wsaw:Action="http://tempuri.org/IINGService/GetUserIdByUsername" message="tns:IINGService_GetUserIdByUsername_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IINGService/GetUserIdByUsernameResponse" message="tns:IINGService_GetUserIdByUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IINGService/AddPayment" message="tns:IINGService_AddPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IINGService/AddPaymentResponse" message="tns:IINGService_AddPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IINGService/GetAccounts" message="tns:IINGService_GetAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IINGService/GetAccountsResponse" message="tns:IINGService_GetAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSentPayments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IINGService/GetSentPayments" message="tns:IINGService_GetSentPayments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IINGService/GetSentPaymentsResponse" message="tns:IINGService_GetSentPayments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecievedPayments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IINGService/GetRecievedPayments" message="tns:IINGService_GetRecievedPayments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IINGService/GetRecievedPaymentsResponse" message="tns:IINGService_GetRecievedPayments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IINGService/CreateAccount" message="tns:IINGService_CreateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IINGService/CreateAccountResponse" message="tns:IINGService_CreateAccount_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IINGService" type="tns:IINGService">
@@ -80,6 +130,51 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserIdByUsername">
       <soap:operation soapAction="http://tempuri.org/IINGService/GetUserIdByUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPayment">
+      <soap:operation soapAction="http://tempuri.org/IINGService/AddPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccounts">
+      <soap:operation soapAction="http://tempuri.org/IINGService/GetAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSentPayments">
+      <soap:operation soapAction="http://tempuri.org/IINGService/GetSentPayments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecievedPayments">
+      <soap:operation soapAction="http://tempuri.org/IINGService/GetRecievedPayments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <soap:operation soapAction="http://tempuri.org/IINGService/CreateAccount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
